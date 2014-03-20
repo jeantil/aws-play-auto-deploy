@@ -1,5 +1,6 @@
 #!/bin/sh
 SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
+source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/env.sh
 if [ -n "$VERSION" ]; then
   APP_PATH=$APPLICATION_HOME/../${APPLICATION_NAME}-$VERSION

@@ -1,5 +1,6 @@
 #!/bin/sh
 SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
+source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/env.sh
 STOP_TIMEOUT=10
 if [ -f $APPLICATION_HOME/RUNNING_PID ]; then

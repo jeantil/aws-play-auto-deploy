@@ -1,5 +1,6 @@
 #!/bin/sh
 SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
+source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/env.sh
 export PATH=$PATH:$HOME/bin/
 if [ -z "$1" ]; then
