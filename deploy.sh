@@ -6,7 +6,7 @@ export PATH=$PATH:$HOME/bin/
 if [ -z "$1" ]; then
   rm -rf /tmp/VERSION 
   aws s3 cp --region $S3_REGION $CONFIG_S3_BASEURL/$APPLICATION_ROLE/$APPLICATION_ENV/VERSION /tmp/VERSION
-  export VERSION=`cat /tmp/VERSION`
+  export VERSION=`head -1 /tmp/VERSION`
   if [ -z "$VERSION" ]; then
     echo "unable to determine version, aborting"
     exit -1; 
