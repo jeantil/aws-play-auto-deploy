@@ -15,6 +15,7 @@ fi
 #export HAZELCAST_OPTS="-Dhazelcast.logging.type=slf4j -Dhazelcast.icmp.enabled=true"
 mkdir -p $APPLICATION_HOME/logs
 
+echo "starting application"
 $APPLICATION_HOME/bin/$APPLICATION_NAME $APP_JVM_OPTS   \
   -Dapplication.home=$HOME/$APPLICATION_NAME/           \
   -Dlogger.file=$HOME/$APPLICATION_NAME/conf/logger.xml \
@@ -26,5 +27,5 @@ while ! check && [ $COUNTER -lt $MAXWAIT ]  ;do
 sleep 5
  COUNTER=$[$COUNTER+1]
 done
-echo "starting application"
+echo "application started"
 check && curl http://localhost:9000/ping && echo
