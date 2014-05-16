@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
 source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/env.sh
@@ -15,4 +15,5 @@ while ! check && [ $COUNTER -lt $MAXWAIT ]  ;do
 sleep 5
  COUNTER=$[$COUNTER+1]
 done
-check && curl http://localhost:9000/ping
+echo "starting application"
+check && curl http://localhost:9000/ping && echo
