@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -e
 SCRIPTPATH=$( cd "$(dirname "$0")" ; pwd -P )
 source $SCRIPTPATH/config.sh
 source $SCRIPTPATH/env.sh
