@@ -16,7 +16,8 @@ fi
 mkdir -p $APPLICATION_HOME/logs
 
 echo "starting application"
-$APPLICATION_HOME/bin/$APPLICATION_NAME $APP_JVM_OPTS   \
+
+JAVA_OPTS="$APP_JVM_OPTS" $APPLICATION_HOME/bin/$APPLICATION_NAME \
   -Dapplication.home=$HOME/$APPLICATION_NAME/           \
   -Dlogger.file=$HOME/$APPLICATION_NAME/conf/logger.xml \
   -Dconfig.file=$HOME/$APPLICATION_NAME/conf/env.conf   \
