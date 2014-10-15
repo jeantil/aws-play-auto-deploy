@@ -15,13 +15,14 @@ fi
 #export HAZELCAST_OPTS="-Dhazelcast.logging.type=slf4j -Dhazelcast.icmp.enabled=true"
 mkdir -p $APPLICATION_HOME/logs
 
-echo "starting application"
+echo "starting application" | tee $APPLICATION_HOME/logs/startup.log 
+echo "$APP_JVM_OPTS" >> $APPLICATION_HOME/logs/startup.log
 
 JAVA_OPTS="$APP_JVM_OPTS" $APPLICATION_HOME/bin/$APPLICATION_NAME \
   -Dapplication.home=$HOME/$APPLICATION_NAME/           \
   -Dlogger.file=$HOME/$APPLICATION_NAME/conf/logger.xml \
   -Dconfig.file=$HOME/$APPLICATION_NAME/conf/env.conf   \
-  &>$APPLICATION_HOME/logs/startup.log & 
+  &>>$APPLICATION_HOME/logs/startup.log & 
 
 COUNTER=0;
 while ! check && [ $COUNTER -lt $MAXWAIT ]  ;do
