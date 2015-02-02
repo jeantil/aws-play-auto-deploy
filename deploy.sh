@@ -18,7 +18,5 @@ echo $VERSION
 $SCRIPTPATH/get_package.sh $VERSION
 $SCRIPTPATH/get_config.sh $VERSION
 $SCRIPTPATH/app_shutdown.sh 
-$SCRIPTPATH/logstash_stop.sh
 $SCRIPTPATH/switch_package.sh $VERSION
 $SCRIPTPATH/app_startup.sh
-$SCRIPTPATH/logstash.sh $VERSION 
